@@ -1,0 +1,23 @@
+[project]
+name = "simplemath"
+version = "0.1.0"
+description = "SimpleMath - simple math functions package"
+authors = [
+    {name = "prs2rnn",email = "developer.prs2rnn@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "simplemath", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.3,<10.0.0)"
+]
