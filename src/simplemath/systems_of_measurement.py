@@ -4,7 +4,7 @@ class SystemsOfMeasurementCalculator:
     @staticmethod
     def decimal_to_any(n: int, base: int) -> str:
         """Convert decimal to binary, octal or hexadecimal."""
-        if base not in (2, 8, 16):
+        if base not in (2, 8, 16, 10):
             raise ValueError('base must be one of the 2, 8, 16 integer')
         if not isinstance(n, int):
             raise TypeError('n must be non-negative integer')
@@ -24,7 +24,7 @@ class SystemsOfMeasurementCalculator:
     @staticmethod
     def any_to_decimal(n: str, base: int) -> int:
         """Convert binary, octal or hexadecimal number to decimal base."""
-        if base not in (2, 8, 16):
+        if base not in (2, 8, 16, 10):
             raise ValueError('base must be one of the 2, 8, 16 integer')
         if not isinstance(n, str):
             raise TypeError('n must be a string')
@@ -44,4 +44,12 @@ class SystemsOfMeasurementCalculator:
             result += value * (base ** power)
             power += 1
 
+        return result
+
+    @staticmethod
+    def convert_base(n: str, from_base: int, to_base: int) -> str:
+        """Convert decimal, binary, octal or hexadecimal number to any system of measurement"""
+        decimal = SystemsOfMeasurementCalculator.any_to_decimal(n, from_base)
+        result = SystemsOfMeasurementCalculator.decimal_to_any(
+            decimal, to_base)
         return result
