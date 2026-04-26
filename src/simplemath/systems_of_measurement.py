@@ -9,6 +9,7 @@ class SystemsOfMeasurementCalculator:
         if not isinstance(n, int):
             raise TypeError('n must be non-negative integer')
 
+        n = abs(n)
         digits = '0123456789ABCDEF'
         result = ''
 
@@ -48,8 +49,20 @@ class SystemsOfMeasurementCalculator:
 
     @staticmethod
     def convert_base(n: str, from_base: int, to_base: int) -> str:
-        """Convert decimal, binary, octal or hexadecimal number to any system of measurement"""
+        """Convert decimal, binary, octal or hexadecimal number to any system of measurement."""
         decimal = SystemsOfMeasurementCalculator.any_to_decimal(n, from_base)
         result = SystemsOfMeasurementCalculator.decimal_to_any(
             decimal, to_base)
         return result
+
+    @staticmethod
+    def is_valid_number(n: str, base: int) -> bool:
+        """Check if n is in base system of measurement."""
+        if base not in (2, 8, 10, 16):
+            raise ValueError('base must be 2, 8, 10 or 16 integer')
+        n = abs(n)
+        valid_digits = '0123456789ABCDEF'[:base]
+        for i in n:
+            if i not in valid_digits:
+                return False
+        return True

@@ -31,6 +31,9 @@ class TestDecimalToAny:
     def test_decimal_to_any_to_decimal(self):
         assert SystemsOfMeasurementCalculator.decimal_to_any(123, 10) == '123'
 
+    def test_decimal_to_any_negative(self):
+        assert SystemsOfMeasurementCalculator.decimal_to_any(-1, 10) == '1'
+
 
 class TestAnyToDecimal:
 
