@@ -1,5 +1,5 @@
-import pytest
 from src.simplemath import FibonacciCalculator
+
 
 class TestFibonacciCalculator:
     def test_sequence_valid_input(self):

@@ -6,6 +6,8 @@ A lightweight Python package with basic mathematical functions.
 
 * Factorial calculation (iterative and recursive)
 * Fibonacci calculation (sequence and generator)
+* Sum calculation (recursive)
+* Calculations from one system of measurement to another
 *
 
 ## Installation

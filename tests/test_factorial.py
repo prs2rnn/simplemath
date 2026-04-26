@@ -1,6 +1,7 @@
 import pytest
 from src.simplemath import FactorialCalculator
 
+
 class TestFactorialCalculator:
     def test_iterative_factorial_zero(self):
         assert FactorialCalculator.iterative(0) == 1
